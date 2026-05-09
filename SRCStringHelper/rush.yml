@@ -1,0 +1,19 @@
+name: SRCStringHelper
+
+description: Simple string utility extension by Shree Ram Computers, Daurala, Meerut.
+
+homepage: https://shreeramcomputers.com
+
+license: MIT
+
+min_sdk: 21
+
+version:
+  name: "1.0.0"
+  number: 1
+
+build:
+  release:
+    optimize: true
+  kotlin:
+    enable: false
