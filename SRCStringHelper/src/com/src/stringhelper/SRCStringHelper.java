@@ -1,9 +1,11 @@
 package com.src.stringhelper;
 
 import com.google.appinventor.components.annotations.SimpleFunction;
+import com.google.appinventor.components.annotations.SimpleObject;
 import com.google.appinventor.components.runtime.AndroidNonvisibleComponent;
 import com.google.appinventor.components.runtime.ComponentContainer;
 
+@SimpleObject(external = true)
 public class SRCStringHelper extends AndroidNonvisibleComponent {
 
     public SRCStringHelper(ComponentContainer container) {
@@ -22,13 +24,13 @@ public class SRCStringHelper extends AndroidNonvisibleComponent {
         return new StringBuilder(text).reverse().toString();
     }
 
-    @SimpleFunction(description = "Check karta hai ki text palindrome hai ya nahi. " +
-            "Palindrome = ulta-seedha same hota hai. Jaise: MADAM, RACECAR. " +
-            "Returns true/false.")
+    @SimpleFunction(description = "Check karta hai ki text palindrome hai ya nahi.")
     public boolean IsPalindrome(String text) {
         if (text == null || text.isEmpty()) return false;
+
         String cleaned = text.toLowerCase().replaceAll("\\s+", "");
         String reversed = new StringBuilder(cleaned).reverse().toString();
+
         return cleaned.equals(reversed);
     }
 }
