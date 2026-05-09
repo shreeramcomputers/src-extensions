@@ -1,0 +1,38 @@
+name: Build SRC Extensions
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-string-helper:
+    name: Build SRCStringHelper
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Java 11
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Install Rush CLI
+        run: |
+          curl https://raw.githubusercontent.com/shreyashsaitwal/rush-cli/main/scripts/install/install.sh -fsSL | sh
+          echo "$HOME/.rush/bin" >> $GITHUB_PATH
+
+      - name: Build Extension
+        run: |
+          cd SRCStringHelper
+          rush build --release
+
+      - name: Upload .aix
+        uses: actions/upload-artifact@v4
+        with:
+          name: SRCStringHelper-build${{ github.run_number }}
+          path: SRCStringHelper/out/*.aix
+          retention-days: 90
