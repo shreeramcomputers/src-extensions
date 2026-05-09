@@ -12,8 +12,16 @@ version:
   name: "1.0.0"
   number: 1
 
+assets:
+  icon: icon.png
+
 build:
   release:
     optimize: true
+
   kotlin:
     enable: false
+
+  desugar:
+    enable: false
+    desugar_deps: false
