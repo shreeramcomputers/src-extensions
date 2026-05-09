@@ -1,6 +1,6 @@
 name: SRCStringHelper
 
-description: Simple string utility extension by Shree Ram Computers, Daurala, Meerut.
+description: SRC String Helper Extension
 
 homepage: https://shreeramcomputers.com
 
@@ -17,7 +17,7 @@ assets:
 
 build:
   release:
-    optimize: true
+    optimize: false
 
   kotlin:
     enable: false
