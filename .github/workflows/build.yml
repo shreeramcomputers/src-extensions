@@ -1,0 +1,47 @@
+```yaml id="m2t9vk"
+name: Build SRC Extensions
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Java 11
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '11'
+
+      - name: Install Rush CLI
+        run: |
+          curl https://raw.githubusercontent.com/shreyashsaitwal/rush-cli/main/scripts/install/install.sh -fsSL | sh
+
+      - name: Build Extension
+        run: |
+          cd SRCStringHelper
+          rush build --release -r
+
+      - name: Show Generated Files
+        run: |
+          find SRCStringHelper
+
+      - name: Upload .aix
+        uses: actions/upload-artifact@v4
+        with:
+          name: SRCStringHelper
+          path: |
+            SRCStringHelper/out/**/*.aix
+            SRCStringHelper/build/**/*.aix
+            SRCStringHelper/dist/**/*.aix
+```
