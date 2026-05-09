@@ -28,7 +28,7 @@ jobs:
       - name: Build Extension
         run: |
           cd SRCStringHelper
-          rush build --release
+          rush build --release --verbose
 
       - name: Upload .aix
         uses: actions/upload-artifact@v4
