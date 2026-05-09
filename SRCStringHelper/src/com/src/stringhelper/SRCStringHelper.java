@@ -1,12 +1,9 @@
 package com.src.stringhelper;
 
 import com.google.appinventor.components.annotations.SimpleFunction;
-import com.google.appinventor.components.annotations.SimpleObject;
 
 import com.google.appinventor.components.runtime.AndroidNonvisibleComponent;
 import com.google.appinventor.components.runtime.ComponentContainer;
-
-@SimpleObject(external = true)
 
 public class SRCStringHelper extends AndroidNonvisibleComponent {
 
