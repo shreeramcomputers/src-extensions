@@ -1,0 +1,2 @@
+-keep public class com.src.stringhelper.** { public *; }
+-keep class com.google.appinventor.** { *; }
